@@ -119,10 +119,34 @@ public class HandlingMatriz {
      *         Si no se puede, retorna null
      */
 
-    public int[][] multMatriz(int[][] mat) {
-        // TODO responsable Bibian
-
-        return null;
+    public int[][] multMatriz( int[][] mat){
+    	int rowMat = mat[0].length;
+		int colMat = mat.length;
+		
+		int rowMatriz = matriz.length;
+		int colMatriz = matriz[0].length;
+		
+		int[][] multiMatriz = new int[rowMat][colMatriz];
+		
+		if (colMat== rowMatriz) {
+			for (int i = 0; i <colMat; i++) {
+				for (int j = 0; j < rowMatriz; j++) {
+					
+					int multi=0;
+					
+					for (int k = 0; k < colMatriz; k++) {
+						
+						multi = multi + mat[i][k]*matriz[k][j]; 
+						
+					}
+					
+					multiMatriz[i][j]= multi;
+					return multiMatriz;  
+				}
+			}
+		}
+		
+		return null;  
     }
 
     /**
