@@ -4,3 +4,5 @@ Proyecto colaborativo de gestión de arreglos de dos dimensiones (matrices) que 
 
 ## Colaboradores
 
+- Valentina Vega 
+
