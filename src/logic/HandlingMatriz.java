@@ -187,7 +187,7 @@ public class HandlingMatriz {
 
     public int[][] generateMagic(int size) {
 
-        return size % 2 == 0 ? magicPair() : magicOdd();
+        return size % 2 == 0 ? magicPair() : magicOdd(size);
     }
 
     /**
@@ -207,10 +207,48 @@ public class HandlingMatriz {
      * @return arreglo de dos dimensiones con la matriz mágica
      */
 
-    private int[][] magicOdd() {
+    private int[][] magicOdd(int size) {
         // TODO responsable Laura
 
-        return null;
+        int[][] magicOdd = new int[size][size];
+        int[] newArray = new int[size * size];
+        int posRow = 0;
+        int posCol = magicOdd.length / 2;
+        int posRowInitial = posRow;
+        int posColInitial = posCol;
+
+        for (int i = 0; i < newArray.length; i++) {
+            newArray[i] = i + 1;
+        }
+
+        magicOdd[posRow][posCol] = newArray[0];
+
+        for (int i = 1; i < newArray.length; i++) {
+
+            posRowInitial = posRow;
+            posColInitial = posCol;
+            posRow = posRow - 1;
+            posCol = posCol + 1;
+            
+            
+            if (posRow < 0) {                
+                posRow = posRow + magicOdd.length;
+            }
+            if (posCol > magicOdd.length - 1) {
+                posCol = posCol - magicOdd.length;
+            }
+
+            if (magicOdd[posRow][posCol] == 0) {
+                magicOdd[posRow][posCol] = newArray[i];   
+            }else{
+                posRow = posRowInitial + 1;
+                posCol = posColInitial;
+                magicOdd[posRow][posColInitial] = newArray[i];   
+            }
+
+        }       
+
+        return magicOdd;
     }
 
 }
