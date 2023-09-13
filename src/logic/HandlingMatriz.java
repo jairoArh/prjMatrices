@@ -96,7 +96,19 @@ public class HandlingMatriz {
     public int getMainDiag() {
         // TODO responsable Juan David
 
-        return 0;
+    	int row = matriz.length;
+		int columns = matriz[0].length;
+		int addition = 0;
+		if (row == columns) {
+			for (int i = 0; i < matriz.length; i++) {
+				addition += matriz[i][i];
+			}
+
+		} else {
+			return -1;
+		}
+
+		return addition;
     }
 
     /**
@@ -107,7 +119,18 @@ public class HandlingMatriz {
      */
     public int getSecDiag() {
 
-        return 0;
+    	int row = matriz.length;
+		int colums = matriz[0].length;
+		int addition = 0;
+		if (row == colums) {
+
+			for (int i = 0; i < matriz.length; i++) {
+				addition += matriz[i][matriz.length-i-1];
+				}
+		} else {
+			return -1;
+		}
+		return addition;
     }
 
     /**
