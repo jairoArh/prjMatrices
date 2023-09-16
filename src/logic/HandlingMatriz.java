@@ -190,10 +190,21 @@ public class HandlingMatriz {
      * @return un arreglo de dos dimensiones con la suma de la matriz, si no son del
      *         mismo orden retorna null
      */
-    public int[][] sumMatriz(int[][] mat) {
-        // TODO responsable Juan Steban
+    public int[][] sumMatriz(int[][] mat){
+        //TODO responsable Juan Steban
+        if (this.matriz.length != mat.length || this.matriz[0].length != mat[0].length) {
+            return null; //
+        }
+        int rows = this.matriz.length;
+        int columns = this.matriz[0].length;
+        int[][] resultado = new int[rows][columns];
 
-        return null;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                resultado[i][j] = this.matriz[i][j] + mat[i][j];
+            }
+        }
+        return resultado;
     }
 
     /**
